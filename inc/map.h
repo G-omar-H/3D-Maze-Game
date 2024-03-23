@@ -1,9 +1,13 @@
 #ifndef MAP_H
 #define MAP_H
+#include <stdlib.h> 
 
-const int WIDTH = 64;  // Adjust as needed
-const int HEIGHT = 48; // Adjust as needed
 
-extern char map[WIDTH][HEIGHT];
+#define COLUMNS 80
+#define ROWS 80
+
+// Declare `map` as a fixed-size 2D array
+extern const char map[ROWS][COLUMNS];
 
 #endif
+

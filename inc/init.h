@@ -2,6 +2,7 @@
 #define INIT_H_INCLUDED
 
 #include <SDL2/SDL.h>
+#include <GL/gl.h>
 #include <stdio.h>
 
 // Function prototypes for window and renderer initialization (implementation in init.c)

@@ -1,14 +1,13 @@
-#include "../inc/render.h"
+#include "render.h"
 
 SDL_Renderer* renderer;  // Replace with actual renderer declaration
 
-// Function prototypes for texture loading and rendering (implementation included)
-SDL_Texture* load_texture(const char* filePath);
-void render_texture(SDL_Texture* texture, int x, int y, SDL_Renderer* renderer);
-
-void render_wall(int x, double distance, char** map, double wallHeight, SDL_Renderer* renderer) {
+void render_wall(int x, double distance, const char(*)[COLUMNS], double wallHeight, SDL_Renderer* renderer, double cameraY)
+{
     // Calculate wall height based on distance and field of view (adjust as needed)
     double wallHeightRatio = (double)HEIGHT / distance * (HEIGHT / (2.0 * tan(FOV / 2)));
+
+    (void)wallHeight;
 
     // Calculate starting and ending Y coordinates for the wall on the screen
     int startY = (int)(HEIGHT / 2 - wallHeightRatio / 2);
@@ -16,8 +15,8 @@ void render_wall(int x, double distance, char** map, double wallHeight, SDL_Rend
         startY = 0;
     }
     int endY = (int)(HEIGHT / 2 + wallHeightRatio / 2);
-    if (endy > HEIGHT) {
-        endy = HEIGHT;
+    if (endY > HEIGHT) {
+        endY = HEIGHT;
     }
 
     // Determine wall type based on map data
@@ -51,7 +50,7 @@ void render_wall(int x, double distance, char** map, double wallHeight, SDL_Rend
     // Draw the wall using texture (if available) or color
     if (wallTexture) {
         // Calculate texture Y offset based on wall hit position (optional for scrolling textures)
-        double textureYOffset = /* Calculate offset based on hit position */;
+        double textureYOffset = (value - NEAR_PLANE) / (FAR_PLANE - NEAR_PLANE);
         render_texture(wallTexture, x, startY, renderer, textureYOffset);  // Pass texture offset (if applicable)
     } else {
         SDL_SetRenderDrawColor(renderer, 200, 200, 200, 255);  // Light gray for empty space

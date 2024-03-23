@@ -1,17 +1,18 @@
-#include "../inc/raycasting.h"
+#include "raycasting.h"
+#include "main.h"
+
 
 double cameraX = 2.0;  // Player's X position in the map
 double cameraY = 2.0;  // Player's Y position in the map
 double cameraDir = M_PI / 3;  // Player's camera direction (initially facing right)
-const double FAR_PLANE = 100.0;
 
-RaycastHit cast_ray(double rayAngle, double cosRayAngle, double sinRayAngle) {
+RaycastHit cast_ray(double cosRayAngle, double sinRayAngle) {
     RaycastHit hit;
     int hitX, hitY;
     double deltaX = 0.0, deltaY = 0.0;
 
-    int mapWidth = WIDTH;
-    int mapHeight = HEIGHT;
+    int mapWidth = COLUMNS;
+    int mapHeight = ROWS;
 
     double x = cameraX;
     double y = cameraY;
@@ -56,22 +57,23 @@ RaycastHit cast_ray(double rayAngle, double cosRayAngle, double sinRayAngle) {
 
 void raycast_walls(double* distanceBuffer, double* wallHeights) {
     // Loop through all columns on the screen
-    for (int x = 0; x < WIDTH; ++x) {
+    for (int x = 0; x < COLUMNS; ++x) {
         // Calculate ray angle based on camera direction and field of view (FOV)
-        double rayAngle = (cameraDir - FOV / 2.0) + ((double)x / (double)WIDTH) * FOV;
+        double rayAngle = (cameraDir - FOV / 2.0) + ((double)x / (double)COLUMNS) * FOV;
         double cosRayAngle = cos(rayAngle);
         double sinRayAngle = sin(rayAngle);
 
         // Cast a ray for this column and store the results
-        RaycastHit hit = cast_ray(rayAngle, cosRayAngle, sinRayAngle);
+        RaycastHit hit = cast_ray(cosRayAngle, sinRayAngle);
         distanceBuffer[x] = hit.perpWallDist;
-
+        value = hit.perpWallDist;
         // Calculate wall height based on distance and field of view (adjust as needed)
         if (hit.perpWallDist > NEAR_PLANE) {
-            double wallHeight = (double)HEIGHT / hit.perpWallDist * (HEIGHT / (2.0 * tan(FOV / 2)));
+            double wallHeight = (double)ROWS / hit.perpWallDist * (ROWS / (2.0 * tan(FOV / 2)));
             wallHeights[x] = wallHeight;
         } else {
             wallHeights[x] = 0.0;  // No wall visible for very close distances
         }
     }
+
 }

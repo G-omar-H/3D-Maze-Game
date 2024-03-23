@@ -1,6 +1,7 @@
-#include "../inc/map.h"
+#include "map.h"
 
-char map[WIDTH][HEIGHT] = {
+
+const char map[COLUMNS][ROWS] = {
     {'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'},
     {'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S'},
     {'S', ' ', 'S', 'S', 'S', ' ', 'S', 'S', ' ', 'S'},

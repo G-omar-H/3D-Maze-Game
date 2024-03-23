@@ -1,18 +1,15 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>  // for random seed
-#include <SDL2/SDL.h>
+#include "main.h"
+#include "init.h"
+#include "input.h"
+#include "map.h"
+#include "raycasting.h"
+#include "render.h"
 
-#include "../inc/init.h"
-#include "../inc/input.h"
-#include "../inc/render.h"
-#include "../inc/map.h"
-#include "../inc/raycasting.h"
-
-#define WIDTH 800
-#define HEIGHT 600
+double value;
 
 int main(int argc, char* argv[]) {
+    (void)argc;
+    (void)argv;
     // Initialize SDL
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL initialization error: %s\n", SDL_GetError());
@@ -23,17 +20,20 @@ int main(int argc, char* argv[]) {
     SDL_Window* window = init_window(WIDTH, HEIGHT);
     SDL_Renderer* renderer = init_renderer(window);
     if (!window || !renderer) {
-        cleanup_resources(window, renderer);  // Call cleanup function from init.c (if applicable)
+        cleanup_resources(window, renderer);  // Call cleanup function from init.c
         SDL_Quit();
         return 1;
     }
 
-    // Seed the random number generator for map generation (if applicable)
+    // Seed the random number generator for map generation
     srand(time(NULL));
 
     // Initialize raycasting data structures (map data)
     double distanceBuffer[WIDTH];  // Buffer to store distances for each column
     double wallHeights[WIDTH];      // Buffer to store wall heights for each column
+    double cameraDir = 0.0;  // Initial direction
+    double cameraX = 0.0;   // Initial position
+    double cameraY = 0.0;
 
     // Main loop for rendering and handling events
     int running = 1;
@@ -68,7 +68,7 @@ int main(int argc, char* argv[]) {
 
             // Call function from render.c to render the wall based on distance and height
             if (distance > 0.1) {  // Avoid rendering for very close distances
-                render_wall(x, distance, map, wallHeight, renderer);
+                render_wall(x, distance, map, wallHeight, renderer, cameraY);
             }
         }
 
@@ -79,13 +79,13 @@ int main(int argc, char* argv[]) {
     }
 
     // Clean up resources
-    cleanup_resources(window, renderer);  // Call cleanup function from init.c (if applicable)
+    cleanup_resources(window, renderer);  // Call cleanup function from init.c
     SDL_Quit();
 
     return 0;
 }
 
-// Function to render ceiling and floor (moved outside main loop for readability)
+// Function to render ceiling and floor
 void render_ceiling_and_floor(SDL_Renderer* renderer, int height, int width) {
     SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);  // Dark gray for ceiling/floor
 

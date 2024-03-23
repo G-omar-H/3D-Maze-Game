@@ -1,10 +1,11 @@
-#include "../inc/input.h"  // Include input handling definitions
+#include "input.h"  // Include input handling definitions
 
-void handle_input(SDL_Event* event, double* cameraX, double* cameraY, double* cameraDir) {
+void handle_input(int* running, double* cameraDir, double* cameraX, double* cameraY, SDL_Event event)
+{
     // Handle keyboard events
-    switch (event->type) {
+    switch (event.type) {
         case SDL_KEYDOWN:
-            switch (event->key.keysym.sym) {
+            switch (event.key.keysym.sym) {
                 case SDLK_w:
                     *cameraX += MOVE_SPEED * cos(*cameraDir);
                     *cameraY += MOVE_SPEED * sin(*cameraDir);
@@ -18,6 +19,9 @@ void handle_input(SDL_Event* event, double* cameraX, double* cameraY, double* ca
                     break;
                 case SDLK_d:
                     *cameraDir += TURN_SPEED;  // Rotate camera right
+                    break;
+                case SDLK_ESCAPE:
+                    *running = 0;  // Quit the game
                     break;
                 default:
                     break;
