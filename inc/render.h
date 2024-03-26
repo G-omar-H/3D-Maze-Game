@@ -8,7 +8,7 @@
 #include "raycasting.h"
 
 // Function prototypes for texture loading and rendering (implementation in render.c)
-SDL_Texture* load_texture(const char* filePath);
+SDL_Texture* load_texture(const char* filePath, SDL_Renderer* renderer);
 void render_texture(SDL_Texture* texture, int x, int y, SDL_Renderer* renderer, double textureYOffset);
 
 // Function prototype for rendering a wall (implementation in render.c)

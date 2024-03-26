@@ -4,6 +4,9 @@
         "format": "c",
         "stdlib.h": "c",
         "sdl.h": "c",
-        "main.h": "c"
+        "main.h": "c",
+        "iterator": "c",
+        "cstdlib": "c",
+        "complex": "c"
     }
 }

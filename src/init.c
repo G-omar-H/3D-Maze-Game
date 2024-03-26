@@ -6,7 +6,6 @@ SDL_Window* init_window(int width, int height) {
 
     // Create a window with the specified title, position, and size
     window = SDL_CreateWindow("Maze Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height, SDL_WINDOW_SHOWN);
-
     if (window == NULL) {
         printf("Failed to create window: %s\n", SDL_GetError());
         return NULL;

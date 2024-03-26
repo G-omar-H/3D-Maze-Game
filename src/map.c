@@ -1,7 +1,7 @@
 #include "map.h"
 
 
-const char map[COLUMNS][ROWS] = {
+const char map[ROWS][COLUMNS] = {
     {'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'},
     {'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S'},
     {'S', ' ', 'S', 'S', 'S', ' ', 'S', 'S', ' ', 'S'},
@@ -12,4 +12,13 @@ const char map[COLUMNS][ROWS] = {
     {'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S'},
     {'S', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'S'},
     {'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S', 'S'},
+};
+void print_map() {
+    printf("Map Data:\n");
+    for (int i = 0; i < ROWS; ++i) {
+        for (int j = 0; j < COLUMNS; ++j) {
+            printf("%c ", map[i][j]);
+        }
+        printf("\n");
+    }
 };
