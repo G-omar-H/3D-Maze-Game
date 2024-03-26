@@ -36,8 +36,20 @@ RaycastHit cast_ray(double cosRayAngle, double sinRayAngle) {
     while (hitX >= 0 && hitX < mapWidth && hitY >= 0 && hitY < mapHeight) {
         // Check if ray hit a wall (avoiding issue at player position)
         if (map[hitY][hitX] != '.' && (x - cameraX) * (x - cameraX) + (y - cameraY) * (y - cameraY) > NEAR_PLANE * NEAR_PLANE) {
-            hit.perpWallDist = sqrt(pow(x - cameraX, 2) + pow(y - cameraY, 2));
+            
+            // Calculate perpendicular distance to wall and wall hit content
+            double invDet = 1.0 / sqrt(cosRayAngle * cosRayAngle + sinRayAngle * sinRayAngle);            
+            hit.perpWallDist = (x - hitX + (1.0 - deltaX) / 2.0) * cosRayAngle * invDet +
+                               (y - hitY + (1.0 - deltaY) / 2.0) * sinRayAngle * invDet;
+            
+            // Prevent very close distances from distorting the view 
+            if (hit.perpWallDist < 0.01f) {
+                hit.perpWallDist = 0.01f;
+            }
+            
+            // Determine wall type based on map data
             hit.wallHitContent = map[hitY][hitX] == 'S' ? WALL_STONE : WALL_BRICK;  //'S' for stone, 'B' for brick
+            
             return hit;
         }
         x += deltaX;
