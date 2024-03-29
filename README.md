@@ -72,9 +72,5 @@ Example:
 - [LodeV Raycasting Tutorial](http://lodev.org/cgtutor/raycasting.html)
 - [Game Engine Black Book](https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein/dp/1539692876)
 
-### Author
-- Ghazi Omar
-<img src="(cvpic2.jpg)" width="300" />
-
 ### Contact
 Feel free to contact me at [Oghazi@proton.me](mailto:Oghazi@proton.me) with any questions or suggestions. 
