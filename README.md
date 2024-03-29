@@ -6,7 +6,7 @@
 ### How to Compile and Run
 
 #### Requirements
-- [SDL2](https://www.libsdl.org/download-2.0.php) and [SDL2_image](https://www.libsdl.org/projects/SDL_image/) are required to compile and use this program
+  [SDL2](https://www.libsdl.org/download-2.0.php) and [SDL2_image](https://www.libsdl.org/projects/SDL_image/) are required to compile and use this program
 
 - `git clone https://github.com/G-omar-H/3D-Maze-Game.git`
 - `cd 3D-Maze-Game`
