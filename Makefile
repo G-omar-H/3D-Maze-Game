@@ -19,7 +19,6 @@ LFLAGS = -lSDL2 -lSDL2_image -lm
 # SDL Flags
 SDLFLAGS = `sdl2-config --cflags --libs`
 
-
 # Compiles executable
 all: $(SRC)
 	$(CC) $(SRC) $(CFLAGS) $(LFLAGS) -o $(NAME) $(SDLFLAGS)
