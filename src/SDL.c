@@ -18,7 +18,7 @@ bool initSDL(void)
 		success = false;
 	}
 
-	window = SDL_CreateWindow("Maze", SDL_WINDOWPOS_UNDEFINED,
+	window = SDL_CreateWindow("The Maze: find you're way!", SDL_WINDOWPOS_UNDEFINED,
 				  SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH,
 				  SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	if (window == NULL)
