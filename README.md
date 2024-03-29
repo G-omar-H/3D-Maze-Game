@@ -12,10 +12,11 @@
 - `git clone https://github.com/G-omar-H/3D-Maze-Game.git`
 - `cd 3D-Maze-Game`
 - `make -f Makefile`
--  Run the MazeGame : `./TheMaze` # enjoy the game
+-  Run the MazeGame : `./TheMaze`
+-  Enjoy!
 
 #### Bonus
-Custom maps cana be created by editing the text files in the `maps` directory. The map files are parsed by the program and used to draw the maze.
+Custom maps can be created by editing the text files in the `maps` directory. The map files are parsed by the program and used to draw the maze.
 To run the maze with a custom map:
 - `./TheMaze maps/<map_name>` 
 
@@ -87,3 +88,6 @@ Example:
 
 ### Contact
 Feel free to contact me at [Oghazi@proton.me](mailto:Oghazi@proton.me) with any questions or suggestions. 
+
+### License
+This project is licensed under the MIT License - see the [LICENSE]()
