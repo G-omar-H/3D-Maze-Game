@@ -90,4 +90,4 @@ Example:
 Feel free to contact me at [Oghazi@proton.me](mailto:Oghazi@proton.me) with any questions or suggestions. 
 
 ### License
-This project is licensed under the MIT License - see the [LICENSE]()
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/G-omar-H/3D-Maze-Game/blob/main/LICENSE.md) file for details!
