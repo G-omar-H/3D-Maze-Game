@@ -1,12 +1,19 @@
-# 3D MazeRayCasting
-### Creating a 3D maze with raycasting
+# The MazeGame
+### A 3D maze game using raycasting and SDL2
 ![textured_1](https://github.com/G-omar-H/3D-Maze-Game/blob/main/screenshots/textured_1.png)
 -----
 
 ### How to Compile and Run
+
+#### Requirements
 - [SDL2](https://www.libsdl.org/download-2.0.php) and [SDL2_image](https://www.libsdl.org/projects/SDL_image/) are required to compile and use this program
+
+- `git clone https://github.com/G-omar-H/3D-Maze-Game.git`
+- `cd 3D-Maze-Game`
 - `make -f Makefile`
-- Run the MazeGame : `./TheMaze` or `./TheMaze maps/<map_name>` for custom maps
+-  Run the MazeGame : `./TheMaze` or `./TheMaze maps/<map_name>` for custom maps
+
+#### Option
 - Disable textures: `./TheMaze no_tex` or `./TheMaze maps/<map_name> no_tex`
 
 -----
