@@ -8,10 +8,16 @@
 #### Requirements
   [SDL2](https://www.libsdl.org/download-2.0.php) and [SDL2_image](https://www.libsdl.org/projects/SDL_image/) are required to compile and use this program
 
+#### Instructions
 - `git clone https://github.com/G-omar-H/3D-Maze-Game.git`
 - `cd 3D-Maze-Game`
 - `make -f Makefile`
--  Run the MazeGame : `./TheMaze` or `./TheMaze maps/<map_name>` for custom maps
+-  Run the MazeGame : `./TheMaze` # enjoy the game
+
+#### Bonus
+Custom maps cana be created by editing the text files in the `maps` directory. The map files are parsed by the program and used to draw the maze.
+To run the maze with a custom map:
+- `./TheMaze maps/<map_name>` 
 
 #### Option
 - Disable textures: `./TheMaze no_tex` or `./TheMaze maps/<map_name> no_tex`
