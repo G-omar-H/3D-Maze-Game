@@ -5,7 +5,7 @@ CC = gcc
 SRC = src/*.c
 
 # Executable name
-NAME = maze
+NAME = TheMaze
 
 # RM + flags
 RM = rm -f
