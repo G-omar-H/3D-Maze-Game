@@ -27,16 +27,22 @@
 #include "structs.h" /* struct definitions */
 #include "global.h" /* global variables */
 
+/* Prototypes */
+
+/* game envirement initialization */
 int *parseMap(char *filename, int *map);
 void loadTextures(char *mapName);
 
+/* SDL initialization */
 bool initSDL(void);
 void updateRenderer(bool textured);
 void closeSDL(void);
 
+/* input handling */
 void input(int *maze);
 bool quit(void);
 
+/* rendering */
 void raycaster(int *maze, bool textured);
 void renderWalls(int *maze, SDL_Point map, point_t rayPos, point_t rayDir, double distToWall, int x, int side, bool textured);
 void renderBGFlat(void);
