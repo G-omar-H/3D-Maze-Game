@@ -73,4 +73,4 @@ Example:
 - [Game Engine Black Book](https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein/dp/1539692876)
 
 ### Contact
-Feel free to contact [me](mailto:Oghazi@proton.me) with any questions or suggestions. 
+Feel free to contact me at [Oghazi@proton.me](mailto:Oghazi@proton.me) with any questions or suggestions. 
