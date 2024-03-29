@@ -1,5 +1,5 @@
 # The MazeGame
-### A 3D maze game using raycasting and SDL2
+### Dive headfirst into the world of 3D mazes. Clone the repository, follow the getting started guide, and embark on your journey.
 ![textured_1](https://github.com/G-omar-H/3D-Maze-Game/blob/main/screenshots/textured_1.png)
 -----
 
