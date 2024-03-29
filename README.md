@@ -73,7 +73,7 @@ Example:
 - [Game Engine Black Book](https://www.amazon.com/Game-Engine-Black-Book-Wolfenstein/dp/1539692876)
 
 ### Author
-- [Ghazi Omar](![alt text](cvpic2.jpg))
+- [Ghazi Omar]<img src="![alt text](cvpic2.jpg)" width="300" />
 
 ### Contact
 Feel free to contact me at [Oghazi@proton.me](mailto:Oghazi@proton.me) with any questions or suggestions. 
